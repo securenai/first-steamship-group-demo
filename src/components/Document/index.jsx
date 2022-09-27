@@ -9,11 +9,19 @@ const Document = () => {
 	const [itemRowDataArray, setItemRowDataArray] = useState([]);
 
 	const handleAddItem = () => {
-		console.log('add item');
 		setItemRowDataArray([
 			...itemRowDataArray,
-			[{ id: itemRowDataArray.length, val1: '', val2: '' }],
+			{
+				id: itemRowDataArray.length,
+				val1: itemRowDataArray.length + 1,
+				val2: '',
+			},
 		]);
+	};
+
+	const handleDeleteItem = (id) => {
+		console.log('delete item');
+		setItemRowDataArray(itemRowDataArray.filter((item) => item.id !== id));
 	};
 
 	return (
@@ -35,6 +43,7 @@ const Document = () => {
 							data={item}
 							isLast={itemRowDataArray.length === index + 1}
 							onAddItem={handleAddItem}
+							onDeleteItem={handleDeleteItem}
 						/>
 					);
 				})}

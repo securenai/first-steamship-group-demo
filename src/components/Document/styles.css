@@ -1,6 +1,7 @@
 .document {
 	position: relative;
-	width: 968px;
+	width: 100%;
+	max-width: 968px;
 	height: 1200px;
 	margin-top: 40px;
 	background-color: #fff;

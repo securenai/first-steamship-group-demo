@@ -16,3 +16,12 @@
 	align-items: center;
 	width: 100%;
 }
+.delete {
+	position: absolute;
+	top: 5px;
+	right: -35px;
+}
+.delete:hover {
+	cursor: pointer;
+	opacity: 0.9;
+}
