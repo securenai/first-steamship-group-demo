@@ -15,7 +15,7 @@ const Document = () => {
 				<Title len={200} ph="請輸入日期" />
 			</div>
 
-			<div style={{ marginTop: '20px' }}>
+			<div className="documentContent">
 				<RowItem />
 			</div>
 		</div>

@@ -1,6 +1,6 @@
 .rowItemWrap {
 	width: 880px;
-	border: 1px solid #000;
+	border-bottom: 1px solid #000;
 	display: flex;
 }
 .rowItemLeft {
@@ -10,4 +10,8 @@
 }
 .rowItemRight {
 	padding: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
 }
