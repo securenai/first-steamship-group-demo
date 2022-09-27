@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import './styles.css';
 
 const Title = (props) => {
@@ -15,7 +15,7 @@ const Title = (props) => {
 		} else {
 			setTitle(props.ph);
 		}
-	}, [inputVal]);
+	}, [inputVal, props.ph]);
 
 	const handleKeyDown = (e) => {
 		if (e.key === 'Enter') {
