@@ -1,0 +1,19 @@
+.AddRowBtn {
+	margin-top: 5px;
+	width: 100% - 1px;
+	height: 35px;
+	border: 1px dotted #0047ab;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 5px;
+}
+.AddRowBtn:hover {
+	background-color: #e9f2ff;
+	cursor: pointer;
+	opacity: 0.9;
+}
+.AddRowBtnText {
+	font-size: 14px;
+	color: #0047ab;
+}
