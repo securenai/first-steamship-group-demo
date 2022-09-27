@@ -1,0 +1,14 @@
+.title {
+	color: #aaaaaa;
+	width: fit-content;
+	padding: 0 40px;
+	height: 38px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.title:hover {
+	background-color: #e9f2ff;
+	border: 1px solid #0047ab;
+	/* border-color: #0047ab; */
+}
