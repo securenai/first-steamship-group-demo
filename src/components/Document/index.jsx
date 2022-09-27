@@ -5,8 +5,8 @@ import Title from '../Parts/Title';
 const Document = () => {
 	return (
 		<div className="document">
-			<Title />
-			<Title />
+			<Title len={500} ph="請輸入標題" />
+			<Title len={200} ph="請輸入日期" />
 			<p>
 				En un lugar de la Mancha, de cuyo nombre no quiero acordarme, no ha
 				mucho tiempo que vivía un hidalgo de los de lanza en astillero, adarga

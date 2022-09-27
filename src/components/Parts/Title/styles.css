@@ -1,14 +1,37 @@
 .title {
 	color: #aaaaaa;
 	width: fit-content;
+	/* min-width: 100%; */
 	padding: 0 40px;
 	height: 38px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	font-size: 18px;
+}
+.titleBlack {
+	color: #000000;
 }
 .title:hover {
 	background-color: #e9f2ff;
 	border: 1px solid #0047ab;
 	/* border-color: #0047ab; */
+}
+.inputStyles {
+	background-color: #e9f2ff;
+	border: none;
+	outline: none;
+	font-size: 16px;
+}
+.input-500 {
+	width: 500px;
+}
+.input-300 {
+	width: 300px;
+}
+.input-200 {
+	width: 200px;
+}
+.input-100 {
+	width: 100px;
 }
