@@ -4,7 +4,6 @@ import './styles.css';
 
 const Title = (props) => {
 	// const inputRef = useRef(null);
-	console.log(props);
 	const len = props.len;
 	const [editMode, setEditMode] = useState(false);
 	const [title, setTitle] = useState(props.ph);
@@ -35,6 +34,9 @@ const Title = (props) => {
 					className={`inputStyles input-${len}`}
 					type="text"
 					value={inputVal}
+					onBlur={() => {
+						setEditMode(false);
+					}}
 					onKeyDown={handleKeyDown}
 					onChange={(e) => setInputVal(e.target.value)}
 					autoFocus
