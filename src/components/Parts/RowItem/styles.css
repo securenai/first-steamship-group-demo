@@ -10,9 +10,9 @@
 	width: 50px;
 }
 .rowItemRight {
-	padding: 10px;
+	padding: 10px 0;
 	display: flex;
-	justify-content: center;
+	justify-content: flex;
 	align-items: center;
 	width: 100%;
 }

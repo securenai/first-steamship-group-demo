@@ -1,0 +1,43 @@
+.title2 {
+	color: #aaaaaa;
+	width: 100%;
+	/* min-width: 100%; */
+	padding: 0 10px;
+	height: 34px;
+	display: flex;
+	/* justify-content: center; */
+	align-items: center;
+	font-size: 18px;
+	text-align: left;
+}
+.titleBlack2 {
+	color: #000000;
+}
+.title2:hover {
+	background-color: #e9f2ff;
+	border: none;
+	cursor: pointer;
+}
+.inputStyles2 {
+	/* background-color: #e9f2ff; */
+	border: none;
+	outline: none;
+	font-size: 16px;
+	position: absolute;
+	left: 75px;
+}
+.input-500 {
+	width: 500px;
+}
+.input-300 {
+	width: 300px;
+}
+.input-200 {
+	width: 200px;
+}
+.input-100 {
+	width: 100px;
+}
+.input-700 {
+	width: 700px;
+}

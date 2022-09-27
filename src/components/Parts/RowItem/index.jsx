@@ -1,5 +1,6 @@
 import React from 'react';
 import AddRowBtn from '../../AddRowBtn';
+import RowInput from '../../Parts/RowInput';
 import del from '../../../images/delete-btn.svg';
 import './styles.css';
 
@@ -8,7 +9,9 @@ const RowItem = (props) => {
 		<div style={{ position: 'relative' }}>
 			<div className="rowItemWrap">
 				<div className="rowItemLeft">{props.data.val1}</div>
-				<div className="rowItemRight">{props.data.val2}</div>
+				<div className="rowItemRight">
+					<RowInput len={700} ph="" />
+				</div>
 			</div>
 			<div className="delete" onClick={() => props.onDeleteItem(props.data.id)}>
 				<img src={del} alt="Delete" />
