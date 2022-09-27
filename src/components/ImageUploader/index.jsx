@@ -1,6 +1,7 @@
 import React from 'react';
 import ImageUploading from 'react-images-uploading';
 import del from '../../images/delete-btn.svg';
+import ImageItem from '../ImageItem';
 
 import './styles.css';
 
@@ -49,27 +50,34 @@ const ImageUploader = (props) => {
 							{/* <img src={imgBg} alt="img" /> */}
 							<div className="image-container">
 								{imageList.map((image, index) => (
-									<div key={index} className="image-item-box">
-										<div className="image-item">
-											<img src={image.data_url} className="image" alt="" />
-											<div className="image-item__btn-wrapper">
-												<button
-													className="image-item__btn"
-													onClick={(e) => {
-														onImageUpdate(index);
-													}}>
-													更換
-												</button>
-												<button
-													className="image-item__btn"
-													onClick={(e) => {
-														onImageRemove(index);
-													}}>
-													移除
-												</button>
-											</div>
-										</div>
-									</div>
+									<ImageItem
+										key={index}
+										image={image}
+										index={index}
+										onImageUpdate={onImageUpdate}
+										onImageRemove={onImageRemove}
+									/>
+									// <div key={index} className="image-item-box">
+									// 	<div className="image-item">
+									// 		<img src={image.data_url} className="image" alt="" />
+									// 		<div className="image-item__btn-wrapper">
+									// 			<button
+									// 				className="image-item__btn"
+									// 				onClick={(e) => {
+									// 					onImageUpdate(index);
+									// 				}}>
+									// 				更換
+									// 			</button>
+									// 			<button
+									// 				className="image-item__btn"
+									// 				onClick={(e) => {
+									// 					onImageRemove(index);
+									// 				}}>
+									// 				移除
+									// 			</button>
+									// 		</div>
+									// 	</div>
+									// </div>
 								))}
 							</div>
 						</div>
