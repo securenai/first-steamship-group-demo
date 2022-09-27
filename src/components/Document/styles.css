@@ -14,7 +14,8 @@
 	align-items: center;
 }
 .titlesWrap {
-	height: 80px;
+	margin-top: 50px;
+	height: 90px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -29,4 +30,20 @@
 	margin-top: 20px;
 	height: 1100px;
 	border: 1px solid #000;
+}
+.upload-btn {
+	position: fixed;
+	top: 120px;
+	right: 100px;
+	width: 200px;
+	height: 40px;
+	background-color: #0047ab;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #fff;
+	cursor: pointer;
+}
+.upload-btn:hover {
+	opacity: 0.9;
 }
