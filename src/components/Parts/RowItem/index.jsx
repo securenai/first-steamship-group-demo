@@ -11,7 +11,7 @@ const RowItem = (props) => {
 				<div className="rowItemLeft">{props.data.val1}</div>
 				<div className="rowItemRight">
 					<RowInput
-						len={700}
+						len={790}
 						ph=""
 						id={props.data.id}
 						data={props.data.val2}
