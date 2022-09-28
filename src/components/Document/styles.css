@@ -34,8 +34,8 @@
 .upload-btn {
 	position: fixed;
 	top: 120px;
-	right: 100px;
-	width: 200px;
+	right: 60px;
+	width: 140px;
 	height: 40px;
 	background-color: #0047ab;
 	display: flex;

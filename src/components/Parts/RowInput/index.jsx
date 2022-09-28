@@ -7,15 +7,15 @@ const RowInput = (props) => {
 	const len = props.len;
 	const [editMode, setEditMode] = useState(false);
 	const [title, setTitle] = useState(props.ph);
-	const [inputVal, setInputVal] = useState('');
+	// const [inputVal, setInputVal] = useState(props.data);
 
 	useEffect(() => {
-		if (inputVal) {
-			setTitle(inputVal);
+		if (props.data) {
+			setTitle(props.data);
 		} else {
 			setTitle(props.ph);
 		}
-	}, [inputVal, props.ph]);
+	}, [props.data, props.ph]);
 
 	const handleKeyDown = (e) => {
 		if (e.key === 'Enter') {
@@ -25,7 +25,7 @@ const RowInput = (props) => {
 
 	return (
 		<div
-			className={`title2 ${inputVal ? 'titleBlack2' : ''}`}
+			className={`title2 ${props.data ? 'titleBlack2' : ''}`}
 			onClick={() => {
 				setEditMode(true);
 			}}>
@@ -33,12 +33,15 @@ const RowInput = (props) => {
 				<input
 					className={`inputStyles2 input-${len}`}
 					type="text"
-					value={inputVal}
+					value={props.data}
 					onBlur={() => {
 						setEditMode(false);
 					}}
 					onKeyDown={handleKeyDown}
-					onChange={(e) => setInputVal(e.target.value)}
+					onChange={(e) => {
+						props.doUpdate(props.id, e.target.value);
+					}}
+					// onChange={(e) => setInputVal(e.target.value)}
 					autoFocus
 				/>
 			) : (

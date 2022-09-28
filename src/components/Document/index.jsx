@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles.css';
 import Title from '../Parts/Title';
 import RowHeader from '../Parts/RowHeader';
@@ -10,6 +10,15 @@ const Document = () => {
 	const [itemRowDataArray, setItemRowDataArray] = useState([]);
 	const [showImageUploader, setShowImageUploader] = useState(false);
 
+	useEffect(() => {
+		setItemRowDataArray(
+			itemRowDataArray.map((item, index) => {
+				return { ...item, val1: index + 1 };
+			}),
+		);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [itemRowDataArray.length]);
+
 	const handleCloseImageUploader = () => {
 		setShowImageUploader(false);
 	};
@@ -18,7 +27,7 @@ const Document = () => {
 		setItemRowDataArray([
 			...itemRowDataArray,
 			{
-				id: itemRowDataArray.length,
+				id: new Date().valueOf(),
 				val1: itemRowDataArray.length + 1,
 				val2: '',
 			},
@@ -26,8 +35,18 @@ const Document = () => {
 	};
 
 	const handleDeleteItem = (id) => {
-		console.log('delete item');
 		setItemRowDataArray(itemRowDataArray.filter((item) => item.id !== id));
+	};
+
+	const handleUpdateItem = (id, val) => {
+		setItemRowDataArray(
+			itemRowDataArray.map((item) => {
+				if (item.id === id) {
+					return { ...item, val2: val };
+				}
+				return item;
+			}),
+		);
 	};
 
 	return (
@@ -54,6 +73,7 @@ const Document = () => {
 								isLast={itemRowDataArray.length === index + 1}
 								onAddItem={handleAddItem}
 								onDeleteItem={handleDeleteItem}
+								onUpdateItem={handleUpdateItem}
 							/>
 						);
 					})}

@@ -10,7 +10,6 @@ const ImageUploader = (props) => {
 	const maxNumber = 69;
 	const onChange = (imageList, addUpdateIndex) => {
 		// data for submit
-		console.log(imageList, addUpdateIndex);
 		setImages(imageList);
 	};
 
@@ -22,7 +21,7 @@ const ImageUploader = (props) => {
 				onChange={onChange}
 				maxNumber={maxNumber}
 				dataURLKey="data_url"
-				acceptType={['jpg']}>
+				acceptType={['jpg', 'gif', 'png']}>
 				{({
 					imageList,
 					onImageUpload,
