@@ -25,6 +25,7 @@ const Title = (props) => {
 				props.handleSetDateTitle('');
 			}
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [inputVal, props.ph]);
 
 	const handleKeyDown = (e) => {
