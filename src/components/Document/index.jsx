@@ -1,14 +1,21 @@
 import React, { useState, useEffect } from 'react';
+import { PDFViewer } from '@react-pdf/renderer';
 import './styles.css';
 import Title from '../Parts/Title';
 import RowHeader from '../Parts/RowHeader';
 import RowItem from '../Parts/RowItem';
 import ImageUploader from '../ImageUploader';
+import Modal from '../Modal';
+import PdfDocument from '../PdfDocument';
 import logo from '../../images/logo.svg';
 
 const Document = () => {
 	const [itemRowDataArray, setItemRowDataArray] = useState([]);
 	const [showImageUploader, setShowImageUploader] = useState(false);
+	const [images, setImages] = React.useState([]);
+	const [title, setTitle] = useState('');
+	const [dateTitle, setDateTitle] = useState('');
+	const [showModal, setShowModal] = useState(false);
 
 	useEffect(() => {
 		setItemRowDataArray(
@@ -18,6 +25,18 @@ const Document = () => {
 		);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [itemRowDataArray.length]);
+
+	const handleSetImages = (imageList) => {
+		setImages(imageList);
+	};
+
+	const handleSetTitle = (val) => {
+		setTitle(val);
+	};
+
+	const handleSetDateTitle = (val) => {
+		setDateTitle(val);
+	};
 
 	const handleCloseImageUploader = () => {
 		setShowImageUploader(false);
@@ -49,6 +68,14 @@ const Document = () => {
 		);
 	};
 
+	const handleExportPdf = () => {
+		setShowModal(true);
+		// console.log(itemRowDataArray);
+		// console.log(images);
+		// console.log(title);
+		// console.log(dateTitle);
+	};
+
 	return (
 		<div className="document">
 			<div>
@@ -56,10 +83,23 @@ const Document = () => {
 				<div className="upload-btn" onClick={() => setShowImageUploader(true)}>
 					附加照片
 				</div>
+				<div className="export-btn" onClick={() => handleExportPdf()}>
+					匯出
+				</div>
 			</div>
 			<div className="titlesWrap">
-				<Title len={500} ph="請輸入標題" />
-				<Title len={200} ph="請輸入日期" />
+				<Title
+					len={500}
+					ph="請輸入標題"
+					handleSetTitle={handleSetTitle}
+					type={1}
+				/>
+				<Title
+					len={200}
+					ph="請輸入日期"
+					handleSetDateTitle={handleSetDateTitle}
+					type={2}
+				/>
 			</div>
 
 			<div className="documentContent">
@@ -79,9 +119,27 @@ const Document = () => {
 					})}
 				</div>
 				{showImageUploader && (
-					<ImageUploader closeUploader={handleCloseImageUploader} />
+					<ImageUploader
+						closeUploader={handleCloseImageUploader}
+						handleSetImages={handleSetImages}
+					/>
 				)}
 			</div>
+			<Modal
+				showModal={showModal}
+				closeModal={() => {
+					setShowModal(false);
+				}}
+				children={
+					<div className="exportPage">
+						<PDFViewer>
+							<PdfDocument
+								data={[title, dateTitle, itemRowDataArray, images]}
+							/>
+						</PDFViewer>
+					</div>
+				}
+			/>
 		</div>
 	);
 };

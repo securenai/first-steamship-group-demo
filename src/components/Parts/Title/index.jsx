@@ -12,8 +12,18 @@ const Title = (props) => {
 	useEffect(() => {
 		if (inputVal) {
 			setTitle(inputVal);
+			if (props.type === 1) {
+				props.handleSetTitle(inputVal);
+			} else if (props.type === 2) {
+				props.handleSetDateTitle(inputVal);
+			}
 		} else {
 			setTitle(props.ph);
+			if (props.type === 1) {
+				props.handleSetTitle('');
+			} else if (props.type === 2) {
+				props.handleSetDateTitle('');
+			}
 		}
 	}, [inputVal, props.ph]);
 

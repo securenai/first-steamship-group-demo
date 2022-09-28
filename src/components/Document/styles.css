@@ -44,6 +44,31 @@
 	color: #fff;
 	cursor: pointer;
 }
+.export-btn {
+	position: fixed;
+	top: 200px;
+	right: 60px;
+	width: 140px;
+	height: 40px;
+	background-color: #0047ab;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #fff;
+	cursor: pointer;
+}
 .upload-btn:hover {
 	opacity: 0.9;
+}
+.export-btn:hover {
+	opacity: 0.9;
+}
+.exportPage {
+	width: 80%;
+	height: 90%;
+	background-color: #f7f8f9;
+}
+.exportPage > iframe {
+	height: 100%;
+	width: 100%;
 }

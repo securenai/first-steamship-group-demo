@@ -2,15 +2,15 @@ import React from 'react';
 import ImageUploading from 'react-images-uploading';
 import del from '../../images/delete-btn.svg';
 import ImageItem from '../ImageItem';
-
 import './styles.css';
 
 const ImageUploader = (props) => {
 	const [images, setImages] = React.useState([]);
-	const maxNumber = 69;
+	const maxNumber = 9;
 	const onChange = (imageList, addUpdateIndex) => {
 		// data for submit
 		setImages(imageList);
+		props.handleSetImages(imageList);
 	};
 
 	return (
@@ -21,7 +21,7 @@ const ImageUploader = (props) => {
 				onChange={onChange}
 				maxNumber={maxNumber}
 				dataURLKey="data_url"
-				acceptType={['jpg', 'gif', 'png']}>
+				acceptType={['jpg', 'gif', 'png', 'svg']}>
 				{({
 					imageList,
 					onImageUpload,
@@ -46,7 +46,6 @@ const ImageUploader = (props) => {
 							}}
 							{...dragProps}>
 							<div style={{ fontSize: '14px' }}>點擊此處或將圖片拖拉至此</div>
-							{/* <img src={imgBg} alt="img" /> */}
 							<div className="image-container">
 								{imageList.map((image, index) => (
 									<ImageItem
@@ -56,27 +55,6 @@ const ImageUploader = (props) => {
 										onImageUpdate={onImageUpdate}
 										onImageRemove={onImageRemove}
 									/>
-									// <div key={index} className="image-item-box">
-									// 	<div className="image-item">
-									// 		<img src={image.data_url} className="image" alt="" />
-									// 		<div className="image-item__btn-wrapper">
-									// 			<button
-									// 				className="image-item__btn"
-									// 				onClick={(e) => {
-									// 					onImageUpdate(index);
-									// 				}}>
-									// 				更換
-									// 			</button>
-									// 			<button
-									// 				className="image-item__btn"
-									// 				onClick={(e) => {
-									// 					onImageRemove(index);
-									// 				}}>
-									// 				移除
-									// 			</button>
-									// 		</div>
-									// 	</div>
-									// </div>
 								))}
 							</div>
 						</div>
